@@ -1,0 +1,21 @@
+---
+title: "Bridge"
+author: "Yizhe Wang"
+date: "1/30/2017"
+output: html_document
+---
+```{r}
+info = read.csv("MA15.txt",header = TRUE,sep = ",")
+
+id = info[, c(1, 2)]
+fips_code = info[, 9]
+year = info[,27]
+ratings = info[,67:75]
+abstract = cbind(id, fips_code, year, ratings)
+
+colnames(abstract)[3] = colnames(info)[9]
+names(abstract)[4] = colnames(info)[27]
+
+print(abstract) 
+```
+
